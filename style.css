@@ -10,7 +10,7 @@ body {
 
 #menu-toggle {
   position: fixed;
-  right: 20px;
+  right: 100px;
   top: 20px;
   font-size: 28px;
   color: #27f7a0;
@@ -88,8 +88,8 @@ nav a:hover {
 } */
 h1 {
   position: fixed;
-  left: 30px;
-  padding: 20px 100% 10px 20px;
+  left: 100px;
+  padding: 20px 100% 10px 0;
   font-size: 28px;
   font-family: monospace;
   font-weight: bold;
@@ -98,7 +98,7 @@ h1 {
 }
 
 section {
-  padding: 150px 80px;
+  padding: 150px 100px;
   min-height: 100vh;
 }
 
