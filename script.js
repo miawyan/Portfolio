@@ -1,20 +1,23 @@
 const toggle = document.getElementById("menu-toggle");
-const sidebar = document.getElementById("sidebar");
+const topbar = document.getElementById("topbar");
+const close = document.getElementById("close");
 
 // click to open and hide the menu
 toggle.addEventListener("click", () => {
   toggle.classList.toggle("active");
-  sidebar.classList.toggle("active");
+  topbar.classList.toggle("active");
 });
 
 // hide automatically when browser
 window.addEventListener("scroll", () => {
-  sidebar.classList.remove("active");
+  toggle.classList.remove("active");
+  topbar.classList.remove("active");
 });
 
 // hidding after select
-document.querySelectorAll("#sidebar a").forEach((link) => {
+document.querySelectorAll("#topbar a").forEach((link) => {
   link.addEventListener("click", () => {
-    sidebar.classList.remove("active");
+    toggle.classList.remove("active");
+    topbar.classList.remove("active");
   });
 });
