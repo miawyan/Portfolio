@@ -1,3 +1,11 @@
+// Notice Panel
+const notice = document.getElementById("dev-notice");
+const closeNotice = document.getElementById("close-notice");
+
+closeNotice.addEventListener("click", () => {
+  notice.style.display = "none";
+});
+
 // menu toggle
 const toggle = document.getElementById("menu-toggle");
 const topbar = document.getElementById("topbar");
@@ -57,12 +65,6 @@ form.addEventListener("submit", function (e) {
 
   emailjs.sendForm("service_e1fze4r", "template_4et56ma", this).then(
     () => {
-      //   status.innerText = "Message sent successfully!";
-      //   form.reset(); // Reset the form after successful submission
-      // })
-      // .catch((error) => {
-      //   status.innerText = "Failed to send message. Please try again.";
-      //   console.error("Error:", error);
       status.innerText = "Message sent successfully!";
       status.style.color = "#27f7a0";
       form.reset();

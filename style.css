@@ -20,6 +20,68 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* =============== Notice Panel =============== */
+#dev-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.notice-box {
+  background: #111;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 0 30px #27f7a0;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+}
+
+.notice-box h2 {
+  color: #27f7a0;
+  margin-bottom: 20px;
+}
+
+.notice-box p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#close-notice {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #27f7a0;
+}
+
+#close-notice:hover {
+  color: white;
+}
+
+/* Animation of the Notice Panel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =============== Top =============== */
 #top-nav {
   position: fixed;
   top: 0;
@@ -34,24 +96,23 @@ body {
   z-index: 1001;
 }
 
-#top-nav nav a {
-  margin-left: 20px;
-  color: #27f7a0;
-  text-decoration: none;
-}
-
-.logo {
+.watermark {
+  left: 80px;
   font-size: 28px;
   font-family: monospace;
+  font-weight: bold;
   color: #27f7a0;
+  z-index: 1001;
 }
 
-.desktop-nav.a {
+/* Desktop Navigation */
+.desktop-nav a {
   margin-left: 20px;
   color: #27f7a0;
   text-decoration: none;
 }
 
+/* Mobile Navigation */
 #menu-toggle {
   display: none;
   font-size: 28px;
@@ -64,35 +125,7 @@ body {
   transform: scale(1.1);
 }
 
-/* #menu-toggle::before {
-  content: "☰";
-} */
-
-/* #menu-toggle.active::before {
-  content: "✕";
-} */
-
-/* #menu-toggle.active {
-  right: 150px;
-} */
-
-/* #close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: #50a158;
-  font-size: 20px;
-} */
-
 #topbar {
-  /* display: block; */
   position: fixed;
   top: -100%; /*hide*/
   left: 0;
@@ -129,31 +162,21 @@ body {
   color: #fff;
 }
 
-h1 {
-  left: 80px;
-  font-size: 28px;
-  font-family: monospace;
-  font-weight: bold;
-  color: #27f7a0;
-  z-index: 1001;
-}
-
+/* =============== Main Section =============== */
 section {
   padding: 150px 200px;
   min-height: 100vh;
 }
 
-/*profile */
+/* ================ Home-Profile ================= */
 .profile-container {
   display: flex;
   align-items: center;
   gap: 40px;
-  /* margin-top: 100px; */
   padding: 50px;
 }
 
 .profile-text {
-  /* max-width: 600px; */
   flex: 1;
 }
 .profile-text p {
@@ -163,7 +186,7 @@ section {
   font-size: 30px;
 }
 
-.profile-text h2 {
+.profile-text h1 {
   font-size: 36px;
   margin-bottom: 20px;
   color: #27f7a0;
@@ -183,6 +206,7 @@ section {
   z-index: 2;
 }
 
+/* Profile Picture Border Animation */
 .animated-ring {
   position: absolute;
   top: 0;
@@ -190,9 +214,7 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  /* box-shadow: 0 0 20px 5px #27f7a0; 发光效果 */
   z-index: 1;
-  /* animation: rotateGlow 3s linear infinite; */
   background: conic-gradient(from 0deg, #b1beb9, #9aa6a3, #b4bdba);
   filter: blur(10px);
   opacity: 0.8;
@@ -202,7 +224,7 @@ section {
     pulseRing 2s ease-in-out infinite;
 }
 
-/* keyframes */
+/* Profile Picture Border Animation - Keyframes */
 @keyframes rotateRing {
   0% {
     transform: rotate(0deg);
@@ -224,11 +246,14 @@ section {
   }
 }
 
+/* ========== About me ========== */
 h2 {
-  margin-bottom: 10px;
+  text-align: left;
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #27f7a0;
 }
 
-/* ========== About me ========== */
 .about-container {
   display: flex;
   max-width: 1400px;
@@ -239,10 +264,10 @@ h2 {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* LHS - Tabs */
 .about-tabs {
   display: flex;
   flex-direction: column;
-  /* width: 20px; */
   padding: 30px 0;
   background: #0b0b10;
   border-right: 1px solid rgba(39, 247, 160, 0.2);
@@ -261,13 +286,10 @@ h2 {
 }
 
 .tab-btn:hover {
-  /* background: #50a158; */
   color: #27f7a0;
   transform: translateX(4px);
 }
 .tab-btn.active {
-  /* font-weight: bold;
-  border-left: 4px solid #27f7a0; */
   color: #27f7a0;
   font-weight: 600;
 }
@@ -284,6 +306,7 @@ h2 {
   border-radius: 2px;
 }
 
+/* RHS - Content */
 .about-content {
   flex: 1;
   padding: 50px;
@@ -291,6 +314,7 @@ h2 {
   color: white;
   position: relative;
 }
+
 .tab-section {
   opacity: 0;
   transform: translateY(10px);
@@ -305,7 +329,6 @@ h2 {
 }
 
 /* ========== Skills ========== */
-
 #skills {
   padding: 100px 50px;
   background: #111;
@@ -367,6 +390,7 @@ h2 {
   transform: translateY(-5px);
   color: #fff;
 }
+
 /* ========== Projects ========== */
 #projects {
   padding: 100px 50px;
@@ -375,12 +399,14 @@ h2 {
   text-align: center;
 }
 
-.section-title {
+#projects h2 {
+  text-align: center;
   font-size: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   color: #27f7a0;
 }
-/* Container */
+
+/* Projects Container */
 .projects-container {
   display: flex;
   justify-content: center;
@@ -395,7 +421,7 @@ h2 {
   perspective: 1000px;
 }
 
-/* Inner */
+/* Content */
 .card-content {
   width: 100%;
   height: 100%;
@@ -431,7 +457,7 @@ h2 {
 }
 
 .card-front img {
-  width: 100%;
+  width: 80%;
   height: 140px;
   object-fit: cover;
 }
@@ -461,7 +487,7 @@ h2 {
   color: #27f7a0;
 }
 
-#contact h3 {
+#contact h2 {
   text-align: center;
   margin-bottom: 50px;
   font-size: 50px;
@@ -474,6 +500,7 @@ h2 {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -493,6 +520,7 @@ h2 {
   background: rgba(39, 247, 160, 0.08);
   transition: 0.3s ease;
 }
+
 .contact-item:hover {
   transform: translateY(-4px);
   background: #27f7a0;
@@ -534,6 +562,7 @@ h2 {
   box-shadow: 0 0 20px #27f7a0;
 }
 
+/* ============== Mobile Setting ============= */
 @media (max-width: 768px) {
   section {
     padding: 100px 40px;
@@ -590,9 +619,6 @@ h2 {
   }
 
   .tab-btn {
-    /* text-align: center;
-    border-left: none;
-    border-bottom: 2px solid transparent; */
     white-space: nowrap;
     text-align: center;
     padding: 5px 20px;
@@ -625,5 +651,5 @@ h2 {
 }
 
 html {
-  scroll-behavior: smooth; /* 平滑滚动 */
+  scroll-behavior: smooth;
 }
