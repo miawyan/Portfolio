@@ -351,8 +351,12 @@ h2 {
   background: var(--card-bg);
   color: white;
   position: relative;
-  text-align: justify;
   line-height: 1.5;
+}
+
+.about-content p {
+  color: var(--text-light);
+  padding: 3px 0;
 }
 
 .tab-section {
@@ -368,19 +372,26 @@ h2 {
   transform: translateY(0);
 }
 
-.education-item {
+.tab-section[data-content="bio"] {
+  text-align: justify;
+}
+
+.education-item,
+.experience-item {
   margin-bottom: 30px;
   padding-left: 10px;
   border-left: 3px solid var(--primary);
 }
 
-.education-item h4 {
+.education-item h4,
+.experience-item h4 {
   font-size: 20px;
   margin-bottom: 5px;
   color: var(--primary);
 }
 
-.education-item p {
+.education-item p,
+.experience-item p {
   margin-bottom: 5px;
   color: var(--text-light);
   font-size: 16px;
@@ -466,7 +477,8 @@ h2 {
 
 /* Projects Container */
 .projects-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
@@ -474,8 +486,9 @@ h2 {
 
 /* Card */
 .project-card {
+  position: relative;
   width: 300px;
-  height: 250px;
+  /* height: 250px; */
   perspective: 1000px;
 }
 
