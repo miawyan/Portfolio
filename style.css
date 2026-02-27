@@ -461,7 +461,6 @@ h2 {
 }
 
 /* ========== Projects ========== */
-
 #projects {
   padding: 100px 50px;
   color: white;
@@ -479,16 +478,14 @@ h2 {
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  justify-content: center;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
 /* Card */
 .project-card {
   position: relative;
-  width: 300px;
-  /* height: 250px; */
+  border-radius: 15px;
+  height: 250px;
   perspective: 1000px;
 }
 
@@ -502,6 +499,10 @@ h2 {
 }
 
 /* Hover flip */
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
 .project-card:hover .card-content {
   transform: rotateY(180deg);
 }
@@ -519,23 +520,67 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 /* Front */
 .card-front {
-  background: var(--card-bg);
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  backface-visibility: hidden;
 }
 
 .card-front img {
-  width: 75%;
-  height: 150px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 14, 34, 0.65);
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .card-front h3 {
-  margin-top: 10px;
-  color: var(--primary);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.8),
+    0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tags span {
+  background: rgba(39, 247, 160, 0.15);
+  color: #27f7a0;
+  padding: 5px 10px;
+  font-size: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(39, 247, 160, 0.6);
 }
 
 /* Back */
@@ -564,6 +609,7 @@ h2 {
   color: #67b3fbd2;
   text-decoration: none;
 }
+
 /* ========== Contact ========== */
 #contact {
   padding: 80px 40px;
