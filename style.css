@@ -163,7 +163,7 @@ body {
 }
 
 #topbar li {
-  margin: 20px 0;
+  margin: 30px 0 0 10px;
 }
 
 #topbar a {
@@ -479,6 +479,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
+  justify-content: center;
 }
 
 /* Card */
@@ -760,6 +761,7 @@ h2 {
     border-right: none;
     border-bottom: 1px solid rgba(39, 247, 160, 0.3);
   }
+
   .about-tabs::-webkit-scrollbar {
     display: none;
   }
