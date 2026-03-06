@@ -24,7 +24,7 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
-/* =============== Notice Panel =============== */
+/* =============== Notice Panel ===============
 #dev-notice {
   position: fixed;
   top: 0;
@@ -84,6 +84,7 @@ body {
     transform: scale(1);
   }
 }
+*/
 
 /* =============== Top =============== */
 #top-nav {
