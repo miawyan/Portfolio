@@ -6,15 +6,15 @@
 //   notice.style.display = "none";
 // });
 
-// window.addEventListener("scroll", function () {
-//   const nav = document.getElementById("top-nav");
+window.addEventListener("scroll", function () {
+  const nav = document.getElementById("top-nav");
 
-//   if (window.scrollY > 50) {
-//     nav.classList.add("scrolled");
-//   } else {
-//     nav.classList.remove("scrolled");
-//   }
-// });
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
 
 // menu toggle
 const toggle = document.getElementById("menu-toggle");

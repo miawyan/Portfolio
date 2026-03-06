@@ -74,17 +74,6 @@ body {
 }
 
 /* Animation of the Notice Panel */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-*/
 
 /* =============== Top =============== */
 #top-nav {
@@ -487,7 +476,7 @@ h2 {
 .project-card {
   position: relative;
   border-radius: 15px;
-  height: 250px;
+  height: 280px;
   perspective: 1000px;
 }
 
@@ -507,6 +496,11 @@ h2 {
 
 .project-card:hover .card-content {
   transform: rotateY(180deg);
+}
+
+.project-card:hover .card-back {
+  z-index: 10;
+  transform: rotateY(180deg) translateZ(1px);
 }
 
 /* Front & Back */
@@ -587,29 +581,76 @@ h2 {
 
 /* Back */
 .card-back {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
   background: var(--card-bg);
   color: var(--text-light);
   border: 1px solid var(--primary);
   box-shadow: 0 0 20px var(--primary-soft);
-  transform: rotateY(180deg);
-  padding: 20px;
-  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  backface-visibility: hidden;
 }
 
-.card-back h3 {
+.card-back-content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 40px;
+  overflow-y: auto;
+  min-height: 0;
+  overscroll-behavior: contain;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.card-back-content h3 {
   margin-bottom: 10px;
 }
-
-.card-back a {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 10px;
+.card-back-content p {
+  color: var(--text-light);
   font-size: 14px;
+  line-height: 1.4;
+}
+.card-back-content a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  text-decoration: none;
   font-weight: bold;
   color: #67b3fbd2;
-  text-decoration: none;
+}
+
+.card-back-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-back-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card-back-content::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.card-back-content::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-soft);
 }
 
 /* ========== Contact ========== */
@@ -733,7 +774,8 @@ h2 {
   }
 
   .projects-container {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
   }
 
